@@ -23,14 +23,15 @@
         <p>Please type in your request:</p>
         <div class="box1">
             <form id="writingtool" method="post" action="/">
-                <textarea name="autoresizing" id="autoresizing" autofocus required form="writingtool" placeholder="Write me an e-mail...">{{ promptuser }}</textarea>
+                <textarea name="autoresizing" id="autoresizing" autofocus required form="writingtool"
+                    placeholder="Write me an e-mail...">{{ promptuser }}</textarea>
                 <button type="submit" id="firstbutton" class="btn btn-dark">Submit</button>
             </form>
             <hr>
         </div>
     </div>
     <div class="box2">
-        <p>Prompt suggestions:</p>
+        <p id="someid">Prompt suggestions:</p>
         <div class="suggest">
             <button class="btn btn-secondary" onclick="email()">Write an e-mail...</button>
             <button class="btn btn-secondary" onclick="summary()">Summarize...</button>
@@ -38,18 +39,22 @@
         </div>
     </div>
     <hr>
-    <div class="output">
+    <div class="outputbox">
         <p><u>Output:</u></p>
         <pre id="output">{{ output }}</pre>
     </div>
-    <button class="btn btn-secondary" id="clipboard"><img class="imgicon" src="../static/clipboard.png" height="25px" width="25px">Copy</button>
+    <button class="btn btn-secondary" id="clipboard" onclick="copy()"><img class="imgicon" src="../static/clipboard.png" height="25px" width="25px">
+        <span id="copy">Copy</span>
+        <span id="copied">Copied!</span>
+    </button>
     <script>
+        document.getElementById("copied").style.display = "none";
         textarea = document.querySelector("#autoresizing");
         textarea.addEventListener('input', autoResize, false);
         document.getElementById("clipboard").style.visibility = "hidden";
         if (document.getElementById("output").innerHTML != "") {
             document.getElementById("clipboard").style.visibility = "visible";
-        }
+        };
 
         function autoResize() {
             this.style.height = 'auto';
@@ -58,25 +63,29 @@
 
         // Copy by W3Schools
         function copy() {
-            // Get the text field
-            var copyText = document.getElementById("output");
+            // Get the text from the <p> element
+            var textToCopy = document.getElementById("output").innerText;
 
-            // Select the text field
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
+            // Use the Clipboard API to write the text to the clipboard
+            navigator.clipboard.writeText(textToCopy);
 
-            // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.value);
+            document.getElementById("copy").style.display = "none";
+            document.getElementById("copied").style.display = "inline";
+            setTimeout(getback, 1000);
+            function getback() {
+                document.getElementById("copy").style.display = "inline";
+                document.getElementById("copied").style.display = "none";
+            }
         }
 
         function translator() {
-            document.getElementById('autoresizing').innerHTML = "Translate ... into";
+            document.getElementById('autoresizing').textContent = "Translate ... into";
         }
 
         function email() {
             document.getElementById('autoresizing').innerHTML = "Write an e-mail";
         }
-        
+
         function summary() {
             document.getElementById('autoresizing').innerHTML = "Summarize";
         }

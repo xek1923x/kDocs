@@ -80,3 +80,11 @@ pre {
 .suggest button {
     margin: 0px 10px;
 }
+
+#copy {
+    display: inline;
+}
+
+#copied {
+    display: inline;
+}

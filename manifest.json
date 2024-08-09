@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
     "name": "kDocs Beta",
-    "version": "1.1",
+    "version": "1.0",
     "description": "AI writing tool extension.",
     "action":{
-        "default_popup": "http://localhost:5000/",
+        "default_popup": "https://kdocsbeta.vercel.app/",
         "default_title": "kDocs Beta"
     }
   }
