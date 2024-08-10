@@ -12,7 +12,7 @@
       "headers": [
         {
           "key": "Permissions-Policy",
-          "value": "clipboard-read=(self), clipboard-write=(self), autofocus=(self)"
+          "value": "clipboard-read=(self), clipboard-write=(self), autofocus=(self), midi=*, encrypted-media=*"
         }
       ]
       }
