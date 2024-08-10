@@ -8,7 +8,7 @@
     ],
     "headers": [
     {
-      "source": "/(.*)",
+      "source": "/templates/kdocs.html",
       "headers": [
         {
           "key": "Permissions-Policy",
