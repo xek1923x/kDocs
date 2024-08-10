@@ -4,7 +4,11 @@
     "version": "1.0",
     "description": "AI writing tool extension.",
     "action":{
-        "default_popup": "https://kdocsbeta.vercel.app/",
+        "default_popup": "index.html",
         "default_title": "kDocs Beta"
-    }
-  }
+    },
+    "permissions": [
+        "clipboardRead",
+        "clipboardWrite"    
+    ]
+}
