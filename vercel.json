@@ -5,16 +5,5 @@
     ],
     "routes": [
         {"src": "/(.*)", "dest": "app.py"}
-    ],
-    "headers": [
-    {
-      "source": "/templates/kdocs.html",
-      "headers": [
-        {
-          "key": "Permissions-Policy",
-          "value": "clipboard-read=*, clipboard-write=*, autofocus=*, midi=*, encrypted-media=*"
-        }
-      ]
-      }
     ]
 }

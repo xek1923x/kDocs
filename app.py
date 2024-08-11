@@ -38,7 +38,6 @@ def llama3(prompt):
         model="llama-3.1-70b-versatile",
     )
 
-    print(chat_completion.choices[0].message.content)
     outputai = chat_completion.choices[0].message.content
     return outputai
 
